@@ -18,6 +18,7 @@ import chalk from 'chalk';
 import { writeFile } from 'fs/promises'
 import { Handler, Callupdate, GroupUpdate } from './event/index.js'
 import { typeWriter, handleAnswer, checkSession, askAuthMethod, askMobileNumber, setAuthOptions } from '../lib/index.js';
+import startServer from './server.js'
 const sessionName = "session";
 const orange = chalk.bold.hex("#FFA500");
 const lime = chalk.bold.hex("#32CD32");
@@ -109,4 +110,5 @@ async function start() {
     });
 }
 
+startServer()
 start();
