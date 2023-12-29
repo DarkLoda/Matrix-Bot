@@ -111,4 +111,4 @@ async function start() {
 }
 
 startServer()
-start();
+await start();
