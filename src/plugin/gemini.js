@@ -40,7 +40,6 @@ async function run() {
   const response = await result.response;
   const aitext = response.text();
   await m.reply(aitext);
-  await fs.promises.unlink(filePath);
 }
 
 run();
