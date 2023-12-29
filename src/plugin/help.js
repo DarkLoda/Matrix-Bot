@@ -83,6 +83,7 @@ const menu = async (m, Matrix) => {
             }
         };
        let { key } = await Matrix.sendMessage(m.from, { text: 'ʟᴏᴀᴅɪɴɢ...' }, { quoted: fgg });
+       await m.React('🍑')
        await m.loading(str, key);
  
         //await Matrix.sendMessage(m.from, { text: str }, { quoted: fgg });
