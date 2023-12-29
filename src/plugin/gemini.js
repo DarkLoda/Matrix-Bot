@@ -26,12 +26,6 @@ async function typewriterEffect(text, key) {
             //  await delay(100); // Adjust the delay time (in milliseconds) as needed
         }
         
-const thinkingMessage = await Matrix.sendMessage(
- m.from,
-    { text: "Thinking..." },
-    { quoted: m 
-    
-});
     
 const API_KEY = 'AIzaSyCdf0QI11bfqok5uX1UXuTvonUkeOF8ooM'
 
@@ -52,6 +46,12 @@ function fileToGenerativePart(path, mimeType) {
     },
   };
 }
+const thinkingMessage = await Matrix.sendMessage(
+ m.from,
+    { text: "Thinking..." },
+    { quoted: m 
+    
+});
 
 async function run() {
   const { key } = thinkingMessage;
@@ -80,7 +80,12 @@ const command = m.body.split(' ')[0].toLowerCase();
       try {
         // Access your API key as an environment variable (see "Set up your API key" above)
         const genAI = new GoogleGenerativeAI(API_KEY);
-
+const thinkingMessage = await Matrix.sendMessage(
+ m.from,
+    { text: "Thinking..." },
+    { quoted: m 
+    
+});
         async function run() {
           // For text-only input, use the gemini-pro model
           const model = genAI.getGenerativeModel({ model: "gemini-pro" });
