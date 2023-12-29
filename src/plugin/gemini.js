@@ -9,7 +9,6 @@ const gemini = async (m, Matrix) => {
 
 const API_KEY = 'AIzaSyCdf0QI11bfqok5uX1UXuTvonUkeOF8ooM'
   
-if (!m.isGroup) {
 if (m.type === "imageMessage") {
   try {
     const buffer = await m.downloadFile(); // await to get the actual buffer
@@ -69,7 +68,7 @@ const command = m.body.split(' ')[0].toLowerCase();
       } catch (error) {
         console.error("Error generating response:", error);
       }
-}}}
+}}
 };
 
 export default gemini;
