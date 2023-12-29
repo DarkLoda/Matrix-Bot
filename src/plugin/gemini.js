@@ -6,9 +6,35 @@ import { join } from 'path'
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const gemini = async (m, Matrix) => {
+async function typewriterEffect(text, key) {
+        // let { key } = await client.sendMessage(from, {text: 'Thinking...'}, {quoted: m})
 
+        
+            await Matrix.relayMessage(
+                m.from,
+                {
+                    protocolMessage: {
+                        key: key,
+                        type: 14,
+                        editedMessage: {
+                            conversation: text
+                        }
+                    }
+                },
+                {}
+            );
+            //  await delay(100); // Adjust the delay time (in milliseconds) as needed
+        }
+        
+const thinkingMessage = await Matrix.sendMessage(
+ m.from,
+    { text: "Thinking..." },
+    { quoted: m 
+    
+});
+    
 const API_KEY = 'AIzaSyCdf0QI11bfqok5uX1UXuTvonUkeOF8ooM'
-  
+
 if (m.type === "imageMessage") {
   try {
     const buffer = await m.downloadFile(); // await to get the actual buffer
@@ -58,9 +84,10 @@ const command = m.body.split(' ')[0].toLowerCase();
           // For text-only input, use the gemini-pro model
           const model = genAI.getGenerativeModel({ model: "gemini-pro" });
           const result = await model.generateContent(prompt);
+          const { key } = thinkingMessage;
           const response = await result.response;
           const aires = response.text();
-          m.reply(aires);
+          await typewriterEffect(aires, key);
         }
 
         run();
