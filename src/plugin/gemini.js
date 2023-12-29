@@ -66,6 +66,22 @@ async function run() {
   const response = await result.response;
   const aitext = response.text();
   await typewriterEffect(aitext, key);
+  const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aitext)}`;
+
+                    await Matrix.sendMessage(
+                        m.from,
+                        {
+                            audio: {
+                                url: speechURL
+                            },
+                            mimetype: "audio/mp4",
+                            ptt: true,
+                            fileName: `loda.mp3`
+                        },
+                        {
+                            quoted: m
+                        }
+                    );
 }
 
 run();
