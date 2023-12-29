@@ -54,6 +54,7 @@ function fileToGenerativePart(path, mimeType) {
 }
 
 async function run() {
+  const { key } = thinkingMessage;
   // For text-and-image input (multimodal), use the gemini-pro-vision model
   const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
 
@@ -64,7 +65,7 @@ async function run() {
   const result = await model.generateContent([prompt, ...imageParts]);
   const response = await result.response;
   const aitext = response.text();
-  await m.reply(aitext);
+  await typewriterEffect(aitext, key);
 }
 
 run();
