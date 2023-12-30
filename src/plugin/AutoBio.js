@@ -10,7 +10,7 @@ const startAutoBio = (Matrix) => {
 };
 
 const setAbout = (Matrix) => {
-  const status = `📆 ${new Date().toLocaleDateString()} ⌚ ${new Date().toLocaleTimeString()} AutoBio ⚡`;
+  const status = `📆 ${new Date().toLocaleDateString()} ⌚ ${new Date().toLocaleTimeString()} Matrix ⚡`;
   Matrix.updateProfileStatus(status);
 };
 
