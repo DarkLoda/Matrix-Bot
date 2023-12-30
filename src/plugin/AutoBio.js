@@ -1,5 +1,5 @@
 let autoBioInterval;
-let autoBioEnabled = false;
+let autoBioEnabled = true;
 
 const startAutoBio = (Matrix) => {
   autoBioInterval = setInterval(() => {
