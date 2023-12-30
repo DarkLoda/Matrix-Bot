@@ -41,7 +41,7 @@ async function run() {
   const response = await result.response;
   const aitext = response.text();
   if (m.isGroup) {
-      m.await(aitext, key);
+      await m.wait(aitext, key);
   } else {
       await m.typewriterEffect(aitext, key);
   }
@@ -71,7 +71,7 @@ const command = m.body.split(' ')[0].toLowerCase();
           const response = await result.response;
           const aires = response.text();
           if (m.isGroup) {
-            m.await(aires, key);
+            await m.wait(aires, key);
           } else {
             await m.typewriterEffect(aires, key);
           }
