@@ -1,6 +1,7 @@
 import moment from 'moment-timezone'
 
 const menu = async (m, Matrix) => {
+  const cmd = m.body.toLowerCase();
     //  Bot Prosess Time
     const uptime = process.uptime();
     const day = Math.floor(uptime / (24 * 3600)); // Calculate days
@@ -34,7 +35,7 @@ const menu = async (m, Matrix) => {
         var pushwish = `Good Morning 🌄`;
     }
 
-    if (m.body === ".menu") {
+    if (cmd === ".menu") {
         const str = `
 ╭──═❮ *TheMatrix-MD* ❯═─┈•
 │ Hi *${m.pushName}* 👋  
