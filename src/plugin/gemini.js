@@ -26,12 +26,7 @@ function fileToGenerativePart(path, mimeType) {
     },
   };
 }
-const thinkingMessage = await Matrix.sendMessage(
- m.from,
-    { text: "Thinking..." },
-    { quoted: m 
-    
-});
+const thinkingMessage = await Matrix.sendMessage(m.from, { text: "Thinking..." }, { quoted: m });
 
 async function run() {
   const { key } = thinkingMessage;
