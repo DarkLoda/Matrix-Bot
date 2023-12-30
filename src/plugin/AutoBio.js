@@ -17,10 +17,10 @@ const autoBio = async (m, Matrix) => {
   }
   const message = m.body.toLowerCase();
 
-  if (message === '/autobio on' && !autoBioEnabled) {
+  if (message === '.autobio on' && !autoBioEnabled) {
     autoBioEnabled = true;
     await Matrix.sendMessage(m.from, { text: 'Auto bio activated!' });
-  } else if (message === '/autobio off') {
+  } else if (message === '.autobio off') {
     autoBioEnabled = false;
     clearInterval(autoBioInterval);
     await Matrix.sendMessage(m.from, { text: 'Auto bio disabled.' });
