@@ -41,11 +41,10 @@ const menu = async (m, Matrix) => {
 ╰–❖ *${pushwish}* 😄 
 
 ╭──═❮ *Bot Info* ❯═─┈•
-│ *Bot Name* : *TheMatrix-MD*
-│ *Owner Name* : *Goutam Stark*
-│ *Prefix* :  *[ . ]*
-│ *Uptime* : *${hours}h ${minutes}m ${seconds}s*
-│ *Mode* : *Public*
+│✑ *ʙᴏᴛ ɴᴀᴍᴇ*: *TheMatrix-MD*
+│✑ *ᴅᴇᴠᴇʟᴏᴘᴇʀ*: *Goutam Stark*
+│✑ *ᴘʀᴇꜰɪx*: *[ . ]*
+│✑ *ʀᴜɴ ᴛɪᴍᴇ*: *${hours}h ${minutes}m ${seconds}s*
 ╰────────────────❃ 
 ╭──═❮ *Users Info* ❯═─┈•
 │✑𝗡𝗮𝗺𝗲 : *${m.pushName}*
@@ -57,9 +56,10 @@ const menu = async (m, Matrix) => {
 ╰────────────────❃ 
 ╭──═❮ *COMMANDS* ❯═─┈•
 │  ╭──┈•
-│  │➛ .Ping
-│  │➛ .Menu
-│  │➛ .Ai
+│  │➛ .ᴀɪ
+│  │➛ .ᴍᴇɴᴜ
+│  │➛ .ᴘɪɴɢ
+│  │➛ .ᴀʟɪᴠᴇ
 │  ╰───────────⦁
 ╰────────────────❃
    `;
