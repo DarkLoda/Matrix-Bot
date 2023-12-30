@@ -6,7 +6,6 @@ const startAutoBio = (Matrix) => {
     if (autoBioEnabled) {
       const status = `📆 ${new Date().toLocaleDateString()} ⌚ ${new Date().toLocaleTimeString()} Matrix ⚡`;
       Matrix.updateProfileStatus(status)
-      Matrix.sendMessage(Matrix.user.id, { text: 'AutoBio Activated' });
     }
   }, 10000);
 };
@@ -14,6 +13,7 @@ const startAutoBio = (Matrix) => {
 const autoBio = async (m, Matrix) => {
   if (autoBioEnabled) {
     startAutoBio(Matrix);
+    Matrix.sendMessage(Matrix.user.id, { text: 'AutoBio Activated' });
   }
   const message = m.body.toLowerCase();
 
