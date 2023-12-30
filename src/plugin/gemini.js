@@ -40,7 +40,11 @@ async function run() {
   const result = await model.generateContent([prompt, ...imageParts]);
   const response = await result.response;
   const aitext = response.text();
-  await m.typewriterEffect(aitext, key);
+  if (m.isGroup) {
+            m.reply(aitext);
+          } else {
+            await m.typewriterEffect(aitext, key);
+          }
   const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aitext)}`;
   await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype: "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
 }
@@ -66,7 +70,11 @@ const command = m.body.split(' ')[0].toLowerCase();
           const { key } = thinkingMessage;
           const response = await result.response;
           const aires = response.text();
-          await m.typewriterEffect(aires, key);
+          if (m.isGroup) {
+            m.reply(aires);
+          } else {
+            await m.typewriterEffect(aires, key);
+          }
           const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aires)}`;
           await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype: "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
 
