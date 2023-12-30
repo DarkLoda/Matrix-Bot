@@ -54,6 +54,7 @@ run();
 const command = m.body.split(' ')[0].toLowerCase();
     const prompt = m.body.substring(command.length).trim();
     if (command == '.ai') {
+      if (!prompt) return m.reply('Please give me a prompt');	 
       try {
         // Access your API key as an environment variable (see "Set up your API key" above)
         const genAI = new GoogleGenerativeAI(API_KEY);
