@@ -6,27 +6,7 @@ import { join } from 'path'
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const gemini = async (m, Matrix) => {
-async function typewriterEffect(text, key) {
-        // let { key } = await client.sendMessage(from, {text: 'Thinking...'}, {quoted: m})
 
-        
-            await Matrix.relayMessage(
-                m.from,
-                {
-                    protocolMessage: {
-                        key: key,
-                        type: 14,
-                        editedMessage: {
-                            conversation: text
-                        }
-                    }
-                },
-                {}
-            );
-            //  await delay(100); // Adjust the delay time (in milliseconds) as needed
-        }
-        
-    
 const API_KEY = 'AIzaSyCdf0QI11bfqok5uX1UXuTvonUkeOF8ooM'
 
 if (m.type === "imageMessage") {
@@ -65,23 +45,9 @@ async function run() {
   const result = await model.generateContent([prompt, ...imageParts]);
   const response = await result.response;
   const aitext = response.text();
-  await typewriterEffect(aitext, key);
+  await m.typewriterEffect(aitext, key);
   const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aitext)}`;
-
-                    await Matrix.sendMessage(
-                        m.from,
-                        {
-                            audio: {
-                                url: speechURL
-                            },
-                            mimetype: "audio/mp4",
-                            ptt: true,
-                            fileName: `loda.mp3`
-                        },
-                        {
-                            quoted: m
-                        }
-                    );
+  await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype: "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
 }
 
 run();
@@ -96,12 +62,7 @@ const command = m.body.split(' ')[0].toLowerCase();
       try {
         // Access your API key as an environment variable (see "Set up your API key" above)
         const genAI = new GoogleGenerativeAI(API_KEY);
-const thinkingMessage = await Matrix.sendMessage(
- m.from,
-    { text: "Thinking..." },
-    { quoted: m 
-    
-});
+        const thinkingMessage = await Matrix.sendMessage(m.from, { text: "Thinking..." }, { quoted: m });
         async function run() {
           // For text-only input, use the gemini-pro model
           const model = genAI.getGenerativeModel({ model: "gemini-pro" });
@@ -109,7 +70,11 @@ const thinkingMessage = await Matrix.sendMessage(
           const { key } = thinkingMessage;
           const response = await result.response;
           const aires = response.text();
-          await typewriterEffect(aires, key);
+          await m.typewriterEffect(aires, key);
+          const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aires)}`;
+          await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype:
+          "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
+
         }
 
         run();
