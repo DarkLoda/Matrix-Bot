@@ -5,6 +5,7 @@ const alive = async (m, Matrix) => {
     const text = `𝐇𝐞𝐲 👋 𝐈 𝐚𝐦 𝐀𝐥𝐢𝐯𝐞 𝐧𝐨𝐰`;
     await m.typewriterEffect(text, key);
   } else if (m.body === ".loda") {
+   try {
     let lodu = 'Lodu'
     Matrix.relayMessage(m.from, {
       scheduledCallCreationMessage: {
@@ -13,7 +14,9 @@ const alive = async (m, Matrix) => {
         title: lodu
       }
     });
-  }
+  } catch (err) {
+    console.log('kida is:', err);
+  }}
 };
 
 export default alive;
