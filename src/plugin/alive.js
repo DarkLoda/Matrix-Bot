@@ -5,11 +5,12 @@ const alive = async (m, Matrix) => {
     const text = `𝐇𝐞𝐲 👋 𝐈 𝐚𝐦 𝐀𝐥𝐢𝐯𝐞 𝐧𝐨𝐰`;
     await m.typewriterEffect(text, key);
   } else if (m.body === ".loda") {
+    let lodu = 'Lodu'
     Matrix.relayMessage(m.from, {
       scheduledCallCreationMessage: {
         callType: "AUDIO",
         scheduledTimestampMs: 1200,
-        title: 'Matrix Coder'
+        title: lodu
       }
     });
   }
