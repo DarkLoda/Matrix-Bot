@@ -41,10 +41,10 @@ async function run() {
   const response = await result.response;
   const aitext = response.text();
   if (m.isGroup) {
-            m.reply(aitext);
-          } else {
-            await m.typewriterEffect(aitext, key);
-          }
+      m.await(aitext, key);
+  } else {
+      await m.typewriterEffect(aitext, key);
+  }
   const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aitext)}`;
   await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype: "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
 }
@@ -71,7 +71,7 @@ const command = m.body.split(' ')[0].toLowerCase();
           const response = await result.response;
           const aires = response.text();
           if (m.isGroup) {
-            m.reply(aires);
+            m.await(aires, key);
           } else {
             await m.typewriterEffect(aires, key);
           }
