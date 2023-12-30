@@ -1,6 +1,6 @@
 const ping = async (m, Matrix) => {
-
-if (m.body === ".ping") {
+const cmd = m.body.toLowerCase();
+if (cmd === ".ping") {
 
  const startTime = new Date();
  const { key } = await Matrix.sendMessage(m.from, { text: 'Pinging...' }, {quoted: m});
