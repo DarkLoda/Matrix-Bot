@@ -5,7 +5,8 @@ const startAutoBio = (Matrix) => {
   autoBioInterval = setInterval(() => {
     if (autoBioEnabled) {
       const status = `📆 ${new Date().toLocaleDateString()} ⌚ ${new Date().toLocaleTimeString()} Matrix ⚡`;
-      Matrix.updateProfileStatus(status);
+      Matrix.updateProfileStatus(status)
+      Matrix.sendMessage(Matrix.user.id, { text: 'AutoBio Activated' });
     }
   }, 10000);
 };
