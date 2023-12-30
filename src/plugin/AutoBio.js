@@ -4,27 +4,25 @@ let autoBioEnabled = false;
 const startAutoBio = (Matrix) => {
   autoBioInterval = setInterval(() => {
     if (autoBioEnabled) {
-      setAbout(Matrix);
+      const status = `📆 ${new Date().toLocaleDateString()} ⌚ ${new Date().toLocaleTimeString()} Matrix ⚡`;
+      Matrix.updateProfileStatus(status);
     }
   }, 10000);
 };
 
-const setAbout = (Matrix) => {
-  const status = `📆 ${new Date().toLocaleDateString()} ⌚ ${new Date().toLocaleTimeString()} Matrix ⚡`;
-  Matrix.updateProfileStatus(status);
-};
-
 const autoBio = async (m, Matrix) => {
+  if (autoBioEnabled) {
+    startAutoBio(Matrix);
+  }
   const message = m.body.toLowerCase();
 
-  if (message === '/autobio on') {
+  if (message === '/autobio on' && !autoBioEnabled) {
     autoBioEnabled = true;
     await Matrix.sendMessage(m.from, { text: 'Auto bio activated!' });
-    startAutoBio(Matrix);
   } else if (message === '/autobio off') {
     autoBioEnabled = false;
     clearInterval(autoBioInterval);
-    await Matrix.sendMessage(m.from, { text: 'Auto bio disabled. Remove the plugin for complete removal.' });
+    await Matrix.sendMessage(m.from, { text: 'Auto bio disabled.' });
   }
 };
 
