@@ -13,7 +13,7 @@ const startAutoBio = (Matrix) => {
 const autoBio = async (m, Matrix) => {
   if (autoBioEnabled) {
     startAutoBio(Matrix);
-    Matrix.sendMessage(Matrix.user.id, { text: 'AutoBio Activated' });
+    //Matrix.sendMessage(Matrix.user.id, { text: 'AutoBio Activated' });
   }
   const message = m.body.toLowerCase();
 
