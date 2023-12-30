@@ -1,5 +1,6 @@
 const alive = async (m, Matrix) => {
-  if (m.body === ".alive") {
+  const cmd = m.body.toLowerCase();
+  if (cmd === ".alive") {
     const text = `𝐇𝐞𝐲 👋 𝐈 𝐚𝐦 𝐀𝐥𝐢𝐯𝐞 𝐧𝐨𝐰`;
     const audtxt = `Hey ${m.pushName} don't worry i am Alive now`
     const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(audtxt)}`;
@@ -44,7 +45,7 @@ const alive = async (m, Matrix) => {
     };
         
     await Matrix.sendMessage(m.from, doc, { quoted: fgg })
-  } else if (m.body === ".loda") {
+  } else if (cmd === ".loda") {
     try {
       let lodu = 'Lodu';
       await Matrix.relayMessage(
