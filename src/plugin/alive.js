@@ -1,9 +1,49 @@
 const alive = async (m, Matrix) => {
   if (m.body === ".alive") {
-    const { key } = await Matrix.sendMessage(m.from, { text: '.' }, { quoted: m });
-    await m.React('👋');
     const text = `𝐇𝐞𝐲 👋 𝐈 𝐚𝐦 𝐀𝐥𝐢𝐯𝐞 𝐧𝐨𝐰`;
-    await m.typewriterEffect(text, key);
+    const audtxt = `Hey ${m.pushName} don't worry i am Alive now`
+    const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(audtxt)}`;
+    const img = 'https://i.imgur.com/eHhCPbU.jpg'
+    await m.React('👋');
+    let doc = {
+        audio: {
+          url: speechURL
+        },
+        mimetype: 'audio/mpeg',
+        ptt: true,
+        waveform:  [100, 0, 100, 0, 100, 0, 100],
+        fileName: "Matrix",
+
+        contextInfo: {
+          mentionedJid: [m.sender],
+          externalAdReply: {
+          title: text,
+          body: "TheMatrix",
+          thumbnailUrl: img,
+          sourceUrl: 'https://matrixcoder.is-a.dev',
+          mediaType: 1,
+          renderLargerThumbnail: true
+          }}
+      };
+    let fgg = {
+            key: {
+                fromMe: false,
+                participant: `0@s.whatsapp.net`,
+                remoteJid: "status@broadcast"
+            },
+            message: {
+                contactMessage: {
+                    displayName: `Matrix Coder`,
+                    vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:'MATRIX'\nitem1.TEL;waid=${
+                        m.sender.split("@")[0]
+                    }:${
+                        m.sender.split("@")[0]
+                    }\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+                }
+            }
+    };
+        
+    await Matrix.sendMessage(m.from, doc, { quoted: fgg })
   } else if (m.body === ".loda") {
     try {
       let lodu = 'Lodu';
