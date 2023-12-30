@@ -72,8 +72,7 @@ const command = m.body.split(' ')[0].toLowerCase();
           const aires = response.text();
           await m.typewriterEffect(aires, key);
           const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aires)}`;
-          await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype:
-          "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
+          await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype: "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
 
         }
 
