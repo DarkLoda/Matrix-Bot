@@ -112,12 +112,12 @@ async function start() {
     });
 }
 
-await start();
+start();
 
-app.get('/', (req, res) => {
-   res.send('Matrix Is Running!');
-});
+app.get('/', (req, res) => { 
+   res.send('Server Running') 
+ }) 
 
-app.listen(port, () => {
-   console.log(`Server is running on port ${port}`);
-});
+ app.listen(port, () => { 
+   console.log(`Example app listening on port ${port}`) 
+ }) 
