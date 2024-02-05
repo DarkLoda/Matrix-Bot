@@ -112,7 +112,7 @@ async function start() {
     });
 }
 
-await start();
+start();
 app.get('/', (req, res) => { 
    res.send('Server Running') 
  }) 
