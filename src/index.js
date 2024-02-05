@@ -9,7 +9,7 @@ import {
     PHONENUMBER_MCC,
     DisconnectReason
 } from '@whiskeysockets/baileys';
-import startServer from './server.js';
+import express from 'express';
 import { Boom } from '@hapi/boom';
 import pino from 'pino';
 import fs from 'fs';
@@ -19,6 +19,8 @@ import chalk from 'chalk';
 import { writeFile } from 'fs/promises'
 import { Handler, Callupdate, GroupUpdate } from './event/index.js'
 import { typeWriter, handleAnswer, checkSession, askAuthMethod, askMobileNumber, setAuthOptions } from '../lib/index.js';
+const app = express();
+const port = 3000;
 const sessionName = "session";
 const orange = chalk.bold.hex("#FFA500");
 const lime = chalk.bold.hex("#32CD32");
@@ -111,4 +113,11 @@ async function start() {
 }
 
 await start();
-startServer();
+
+app.get('/', (req, res) => {
+   res.send('Matrix Is Running!');
+});
+
+app.listen(port, () => {
+   console.log(`Server is running on port ${port}`);
+});
