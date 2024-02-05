@@ -43,7 +43,7 @@ async function run() {
   if (m.isGroup) {
       await m.wait(aitext, key);
   } else {
-      await m.typewriterEffect(aitext, key);
+      await m.wait(aitext, key);
   }
   const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aitext)}`;
   await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype: "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
@@ -73,7 +73,7 @@ const command = m.body.split(' ')[0].toLowerCase();
           if (m.isGroup) {
             await m.wait(aires, key);
           } else {
-            await m.typewriterEffect(aires, key);
+            await m.wait(aires, key);
           }
           const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(aires)}`;
           await Matrix.sendMessage(m.from, {audio: {url: speechURL},mimetype: "audio/mp4",ptt: true,fileName: `loda.mp3`},{quoted: m});
