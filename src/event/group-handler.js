@@ -23,7 +23,7 @@ export default async function GroupParticipants(Matrix, { id, participants, acti
                      previewType: 0,
                      renderLargerThumbnail: true,
                      thumbnailUrl: profile,
-                     sourceUrl: 'https://github.com'
+                     sourceUrl: 'https://matrixcoder.vercel.app'
                   }
                }
             })
@@ -37,7 +37,7 @@ export default async function GroupParticipants(Matrix, { id, participants, acti
                      previewType: 0,
                      renderLargerThumbnail: true,
                      thumbnailUrl: profile,
-                     sourceUrl: 'https://github.com'
+                     sourceUrl: 'https://matrixcoder.vercel.app'
                   }
                }
             })
