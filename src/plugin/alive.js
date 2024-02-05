@@ -21,7 +21,7 @@ const alive = async (m, Matrix) => {
           title: text,
           body: "TheMatrix",
           thumbnailUrl: img,
-          sourceUrl: 'https://matrixcoder.is-a.dev',
+          sourceUrl: 'https://matrixcoder.vercel.app',
           mediaType: 1,
           renderLargerThumbnail: true
           }}
