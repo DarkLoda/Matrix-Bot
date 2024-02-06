@@ -1,8 +1,35 @@
+import moment from 'moment-timezone'
 const alive = async (m, Matrix) => {
   const cmd = m.body.toLowerCase();
+    const uptime = process.uptime();
+    const day = Math.floor(uptime / (24 * 3600)); // Calculate days
+    const hours = Math.floor((uptime % (24 * 3600)) / 3600); // Calculate hours
+    const minutes = Math.floor((uptime % 3600) / 60); // Calculate minutes
+    const seconds = Math.floor(uptime % 60); // Calculate seconds
+    const xtime = moment.tz("Asia/Colombo").format("HH:mm:ss");
+    const xdate = moment.tz("Asia/Colombo").format("DD/MM/YYYY");
+    const time2 = moment().tz("Asia/Colombo").format("HH:mm:ss");
+    if (time2 < "23:59:00") {
+        var pushwish = `Good Night`;
+    }
+    if (time2 < "19:00:00") {
+        var pushwish = `Good Evening`;
+    }
+    if (time2 < "18:00:00") {
+        var pushwish = `Good Evening`;
+    }
+    if (time2 < "15:00:00") {
+        var pushwish = `Good Afternoon`;
+    }
+    if (time2 < "11:00:00") {
+        var pushwish = `Good Morning`;
+    }
+    if (time2 < "05:00:00") {
+        var pushwish = `Good Morning`;
+    }
   if (cmd === ".alive") {
     const text = `𝐇𝐞𝐲 👋 𝐈 𝐚𝐦 𝐀𝐥𝐢𝐯𝐞 𝐧𝐨𝐰`;
-    const audtxt = `Hey ${m.pushName} don't worry i am Alive now`
+    const audtxt = `Hey ${m.pushName} ${pushwish}. me pichhle ${hours} ghhanta ${minutes} minutes aur ${seconds} seconds se jinda hun, aur kab tak jinda rahunga iska koi gyarenty nahi he.`
     const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(audtxt)}`;
     const img = 'https://i.imgur.com/eHhCPbU.jpg'
     await m.React('👋');
