@@ -29,7 +29,7 @@ const alive = async (m, Matrix) => {
     }
   if (cmd === ".alive") {
     const text = `𝐇𝐞𝐲 👋 𝐈 𝐚𝐦 𝐀𝐥𝐢𝐯𝐞 𝐧𝐨𝐰`;
-    const audtxt = `Hey ${m.pushName} ${pushwish}. me pichhle ${hours} ghhanta ${minutes} minutes aur ${seconds} seconds se jinda hun, aur kab tak jinda rahunga iska koi gyarenty nahi he.`
+    const audtxt = `Hey ${m.pushName} ${pushwish}. में पिछले ${hours} घंटा ${minutes} minutes और ${seconds} seconds से जिंदा हूं, और तक जिन्दा इसका कोई गारेंटी नहीं हे.`
     const speechURL = `https://supreme-catfish-goutammallick516.koyeb.app/speech?text=${encodeURIComponent(audtxt)}`;
     const img = 'https://i.imgur.com/eHhCPbU.jpg'
     await m.React('👋');
